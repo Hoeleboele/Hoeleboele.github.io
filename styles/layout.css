@@ -25,6 +25,10 @@
 	animation: reveal 0.65s ease forwards;
 }
 
+.hero > :nth-child(2) {
+	min-width: 0;
+}
+
 .cards {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(140px, 1fr));
@@ -52,6 +56,12 @@
 	.cards[data-columns="1"] {
 		grid-template-columns: minmax(220px, 1fr);
 	}
+
+	.hero {
+		grid-template-columns: 1fr;
+		align-items: start;
+		gap: 0.95rem;
+	}
 }
 
 @media (max-width: 620px) {
@@ -68,10 +78,5 @@
 	.cards[data-columns="1"],
 	.cards[data-columns="2"] {
 		grid-template-columns: minmax(0, 1fr);
-	}
-
-	.hero {
-		grid-template-columns: 1fr;
-		gap: 0.95rem;
 	}
 }

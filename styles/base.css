@@ -119,6 +119,20 @@ body {
 	line-height: 1;
 }
 
+.theme-toggle-icon {
+	display: none;
+	line-height: 1;
+	font-size: 1rem;
+}
+
+:root[data-theme="light"] .theme-toggle-icon::before {
+	content: "\263E";
+}
+
+:root[data-theme="dark"] .theme-toggle-icon::before {
+	content: "\2600";
+}
+
 @media (max-width: 620px) {
 	.theme-toggle {
 		top: 0.6rem;
@@ -130,6 +144,14 @@ body {
 
 	.theme-toggle-label {
 		display: none;
+	}
+
+	.theme-toggle-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 1.1rem;
+		height: 1.1rem;
 	}
 }
 

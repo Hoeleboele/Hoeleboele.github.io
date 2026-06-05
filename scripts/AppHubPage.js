@@ -10,10 +10,12 @@ export class AppHubPage {
 	render() {
 		const entries = this.appRepository.getAll();
 		const cards = entries.map((entry) => this.cardView.create(entry));
+		const columns = Math.min(3, Math.max(cards.length, 1));
+
+		this.container.dataset.columns = String(columns);
 
 		this.container.replaceChildren(...cards);
 		this.revealCards(cards);
-		this.attachPreviewFallback(cards);
 	}
 
 	revealCards(cards) {
@@ -21,28 +23,6 @@ export class AppHubPage {
 			setTimeout(() => {
 				card.classList.add("revealed");
 			}, 140 + index * 130);
-		});
-	}
-
-	attachPreviewFallback(cards) {
-		cards.forEach((card) => {
-			const frame = card.querySelector(".preview-frame");
-			const shell = card.querySelector(".preview-shell");
-			let loaded = false;
-
-			if (!frame || !shell) {
-				return;
-			}
-
-			frame.addEventListener("load", () => {
-				loaded = true;
-			});
-
-			setTimeout(() => {
-				if (!loaded) {
-					shell.classList.add("preview-error");
-				}
-			}, 3000);
 		});
 	}
 }

@@ -16,7 +16,7 @@
 	position: absolute;
 	inset: 2px;
 	border-radius: 25px;
-	background: linear-gradient(150deg, #f6fdff, #ebf8ff);
+	background: linear-gradient(150deg, var(--tile-inset-a), var(--tile-inset-b));
 	z-index: -1;
 }
 
@@ -25,6 +25,14 @@
 	font-size: 2rem;
 	letter-spacing: 0.04em;
 	color: #16313f;
+}
+
+.personal-logo {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	padding: 0.7rem;
+	border-radius: 24px;
 }
 
 .hero h1 {
@@ -58,100 +66,84 @@
 	text-decoration: none;
 	font-weight: 700;
 	font-size: 0.92rem;
-	color: #0f2a36;
-	background: rgba(255, 255, 255, 0.86);
-	border: 1px solid rgba(17, 42, 54, 0.16);
+	color: var(--ink);
+	background: var(--surface);
+	border: 1px solid var(--line);
 	transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .profile-link:hover,
 .profile-link:focus-visible {
 	transform: translateY(-2px);
-	box-shadow: 0 8px 20px rgba(16, 34, 45, 0.12);
-	border-color: rgba(17, 42, 54, 0.3);
+	box-shadow: var(--shadow);
+	border-color: color-mix(in srgb, var(--line), var(--ink) 20%);
 	outline: none;
 }
 
-.card {
-	background: var(--card);
-	backdrop-filter: blur(5px);
-	border: 1px solid var(--line);
-	border-radius: var(--radius);
-	box-shadow: var(--shadow);
-	overflow: clip;
+
+.app-logo-link {
+	display: block;
+	container-type: inline-size;
+	aspect-ratio: 1;
+	padding: 1rem;
+	border-radius: 14px;
 	text-decoration: none;
-	color: inherit;
+	background: var(--card);
+	border: 1px solid var(--line);
 	opacity: 0;
 	transform: translateY(18px) scale(0.98);
-	transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+	transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+	position: relative;
+	overflow: hidden;
 }
 
-.card.revealed {
+.app-logo-link.revealed {
 	opacity: 1;
 	transform: translateY(0) scale(1);
 	transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
-.card:hover,
-.card:focus-visible {
-	transform: translateY(-5px);
-	box-shadow: 0 20px 36px rgba(16, 34, 45, 0.16);
-	border-color: rgba(17, 42, 54, 0.24);
+.app-logo-link:hover,
+.app-logo-link:focus-visible {
+	transform: translateY(-2px);
+	background: var(--surface-strong);
+	border-color: color-mix(in srgb, var(--line), var(--ink) 20%);
 	outline: none;
 }
 
-.preview-shell {
-	margin: 0;
-	border-bottom: 1px solid var(--line);
-	background: #f3f8fd;
-	padding: 0.8rem;
-	height: 235px;
-	position: relative;
-}
-
-.preview-frame {
+.app-logo {
 	width: 100%;
 	height: 100%;
-	border: 0;
-	border-radius: 14px;
-	background: white;
-	box-shadow: inset 0 0 0 1px rgba(17, 42, 54, 0.08);
-	pointer-events: none;
-}
-
-.card-content {
-	padding: 1rem 1rem 1.1rem;
-}
-
-.card-title {
-	margin: 0;
-	font-family: "Archivo Black", sans-serif;
-	font-size: 1.15rem;
-	letter-spacing: 0.01em;
-}
-
-.card-url {
-	margin: 0.45rem 0 0;
-	color: var(--muted);
-	font-size: 0.94rem;
-	word-break: break-word;
-}
-
-.fallback-note {
-	position: absolute;
-	inset: auto 0.8rem 0.8rem;
-	margin: 0;
-	padding: 0.4rem 0.6rem;
-	border-radius: 10px;
-	font-size: 0.82rem;
-	color: #2c4956;
-	background: rgba(240, 248, 255, 0.92);
-	border: 1px solid rgba(17, 42, 54, 0.14);
-	display: none;
-}
-
-.preview-error .fallback-note {
+	object-fit: contain;
+	border-radius: 8px;
 	display: block;
+}
+
+.app-card-overlay {
+	position: absolute;
+	inset: 0;
+	border-radius: 12px;
+	background: color-mix(in srgb, var(--card) 92%, transparent);
+	backdrop-filter: blur(2px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.85rem;
+	transform: translateY(100%);
+	transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-logo-link:hover .app-card-overlay,
+.app-logo-link:focus-visible .app-card-overlay {
+	transform: translateY(0);
+}
+
+.app-card-overlay-text {
+	font-size: clamp(0.74rem, 8cqi, 0.96rem);
+	font-weight: 600;
+	color: var(--ink);
+	text-align: center;
+	line-height: 1.4;
 }
 
 @media (max-width: 620px) {
@@ -165,7 +157,7 @@
 		font-size: 1.65rem;
 	}
 
-	.preview-shell {
-		height: 205px;
+	.app-logo-link {
+		padding: 0.85rem;
 	}
 }

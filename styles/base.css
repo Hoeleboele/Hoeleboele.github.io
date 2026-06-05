@@ -3,13 +3,39 @@
 	--bg-bottom: #d6f0ef;
 	--ink: #112a36;
 	--muted: #365766;
+	--surface: rgba(255, 255, 255, 0.86);
+	--surface-strong: rgba(255, 255, 255, 0.94);
 	--card: rgba(255, 255, 255, 0.82);
 	--line: rgba(17, 42, 54, 0.14);
 	--brand-a: #ff8a5b;
 	--brand-b: #2fbdaf;
 	--brand-c: #3c7cff;
 	--shadow: 0 14px 32px rgba(16, 34, 45, 0.12);
+	--tile-inset-a: #f6fdff;
+	--tile-inset-b: #ebf8ff;
+	--toggle-bg: rgba(255, 255, 255, 0.88);
+	--toggle-thumb: #102d3b;
+	--toggle-focus: rgba(60, 124, 255, 0.36);
+	--noise-dot: rgba(16, 34, 45, 0.07);
 	--radius: 20px;
+}
+
+:root[data-theme="dark"] {
+	--bg-top: #0f1a28;
+	--bg-bottom: #182938;
+	--ink: #e8f3ff;
+	--muted: #b8cddd;
+	--surface: rgba(20, 35, 52, 0.88);
+	--surface-strong: rgba(26, 43, 63, 0.95);
+	--card: rgba(18, 33, 50, 0.85);
+	--line: rgba(184, 205, 221, 0.26);
+	--shadow: 0 14px 32px rgba(6, 12, 18, 0.46);
+	--tile-inset-a: #223447;
+	--tile-inset-b: #1b2c3f;
+	--toggle-bg: rgba(14, 27, 40, 0.92);
+	--toggle-thumb: #d5e8f9;
+	--toggle-focus: rgba(47, 189, 175, 0.45);
+	--noise-dot: rgba(205, 227, 245, 0.08);
 }
 
 * {
@@ -31,6 +57,75 @@ body {
 		radial-gradient(48vw 48vw at 92% 78%, rgba(60, 124, 255, 0.18), transparent 62%),
 		linear-gradient(165deg, var(--bg-top), var(--bg-bottom));
 	overflow-x: hidden;
+}
+
+.theme-toggle {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.55rem;
+	padding: 0.4rem 0.55rem;
+	border-radius: 999px;
+	border: 1px solid var(--line);
+	background: var(--toggle-bg);
+	color: var(--ink);
+	font: inherit;
+	font-weight: 700;
+	font-size: 0.85rem;
+	cursor: pointer;
+	box-shadow: var(--shadow);
+	z-index: 3;
+	backdrop-filter: blur(8px);
+	transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+	transform: translateY(-1px);
+	border-color: color-mix(in srgb, var(--line), var(--ink) 20%);
+}
+
+.theme-toggle:focus-visible {
+	outline: 2px solid var(--toggle-focus);
+	outline-offset: 2px;
+}
+
+.theme-toggle-track {
+	width: 42px;
+	height: 24px;
+	border-radius: 999px;
+	background: linear-gradient(140deg, var(--brand-c), var(--brand-b));
+	padding: 3px;
+	display: flex;
+	align-items: center;
+	transition: background 0.2s ease;
+}
+
+.theme-toggle-thumb {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: var(--toggle-thumb);
+	transform: translateX(0);
+	transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+:root[data-theme="dark"] .theme-toggle-thumb {
+	transform: translateX(18px);
+}
+
+.theme-toggle-label {
+	line-height: 1;
+}
+
+@media (max-width: 620px) {
+	.theme-toggle {
+		top: 0.6rem;
+		right: 0.6rem;
+		padding: 0.35rem 0.45rem;
+		font-size: 0.8rem;
+	}
 }
 
 @keyframes reveal {

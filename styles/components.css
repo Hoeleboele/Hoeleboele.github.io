@@ -84,7 +84,6 @@
 .app-logo-link {
 	display: block;
 	container-type: inline-size;
-	aspect-ratio: 1;
 	padding: 1rem;
 	border-radius: 14px;
 	text-decoration: none;
@@ -94,6 +93,13 @@
 	transform: translateY(18px) scale(0.98);
 	transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
 	position: relative;
+	overflow: hidden;
+}
+
+.app-card-media {
+	position: relative;
+	aspect-ratio: 1;
+	border-radius: 8px;
 	overflow: hidden;
 }
 
@@ -115,7 +121,6 @@
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
-	border-radius: 8px;
 	display: block;
 }
 
@@ -152,25 +157,23 @@
 	line-height: 1.4;
 }
 
+.app-card-caption {
+	display: none;
+	margin-top: 0.7rem;
+	font-size: 0.98rem;
+	font-weight: 600;
+	line-height: 1.45;
+	color: var(--ink);
+	text-align: center;
+}
+
 @media (max-width: 620px) {
 	.app-card-overlay {
-		inset: auto 0 0;
-		align-items: flex-end;
-		justify-content: center;
-		padding: 0.45rem 0.55rem 0.5rem;
-		background: linear-gradient(
-			180deg,
-			color-mix(in srgb, var(--card) 10%, transparent) 0%,
-			color-mix(in srgb, var(--card) 80%, transparent) 68%,
-			color-mix(in srgb, var(--card) 92%, transparent) 100%
-		);
-		backdrop-filter: blur(1.5px);
-		transform: translateY(0);
+		display: none;
 	}
 
-	.app-card-overlay-text {
-		font-size: clamp(0.74rem, 7.2cqi, 0.9rem);
-		font-weight: 500;
+	.app-card-caption {
+		display: block;
 	}
 }
 

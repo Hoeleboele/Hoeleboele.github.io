@@ -20,7 +20,7 @@ export class AppCardView {
 	}
 
 	setupTouchOverlayToggle(logoLink) {
-		if (this.hasDesktopHover()) {
+		if (this.hasDesktopHover() || this.isMobileLayout()) {
 			return;
 		}
 
@@ -59,5 +59,13 @@ export class AppCardView {
 		}
 
 		return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+	}
+
+	isMobileLayout() {
+		if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+			return false;
+		}
+
+		return window.matchMedia("(max-width: 620px)").matches;
 	}
 }

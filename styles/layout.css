@@ -61,8 +61,13 @@
 	}
 
 	.cards {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
 		gap: 0.75rem;
+	}
+
+	.cards[data-columns="1"],
+	.cards[data-columns="2"] {
+		grid-template-columns: minmax(0, 1fr);
 	}
 
 	.hero {

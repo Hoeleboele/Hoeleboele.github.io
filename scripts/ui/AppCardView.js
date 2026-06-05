@@ -14,6 +14,50 @@ export class AppCardView {
 			</div>
 		`;
 
+		this.setupTouchOverlayToggle(logoLink);
+
 		return logoLink;
+	}
+
+	setupTouchOverlayToggle(logoLink) {
+		if (this.hasDesktopHover()) {
+			return;
+		}
+
+		const overlay = logoLink.querySelector(".app-card-overlay");
+		if (!overlay) {
+			return;
+		}
+
+		logoLink.setAttribute("aria-expanded", "false");
+
+		logoLink.addEventListener("click", (event) => {
+			const isOpen = logoLink.classList.contains("overlay-open");
+
+			if (!isOpen) {
+				event.preventDefault();
+				logoLink.classList.add("overlay-open");
+				logoLink.setAttribute("aria-expanded", "true");
+				overlay.setAttribute("aria-hidden", "false");
+			}
+		});
+
+		logoLink.addEventListener("blur", () => {
+			if (!logoLink.classList.contains("overlay-open")) {
+				return;
+			}
+
+			logoLink.classList.remove("overlay-open");
+			logoLink.setAttribute("aria-expanded", "false");
+			overlay.setAttribute("aria-hidden", "true");
+		});
+	}
+
+	hasDesktopHover() {
+		if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+			return false;
+		}
+
+		return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 	}
 }

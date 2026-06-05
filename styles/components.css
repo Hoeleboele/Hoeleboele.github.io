@@ -133,9 +133,15 @@
 	transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.app-logo-link:hover .app-card-overlay,
-.app-logo-link:focus-visible .app-card-overlay {
+.app-logo-link.overlay-open .app-card-overlay {
 	transform: translateY(0);
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.app-logo-link:hover .app-card-overlay,
+	.app-logo-link:focus-visible .app-card-overlay {
+		transform: translateY(0);
+	}
 }
 
 .app-card-overlay-text {
@@ -177,8 +183,7 @@
 }
 
 @media (hover: none) {
-	.app-card-overlay {
-		transform: translateY(0);
+	.app-logo-link.overlay-open .app-card-overlay {
 		background: color-mix(in srgb, var(--card) 82%, transparent);
 		backdrop-filter: blur(1.5px);
 	}

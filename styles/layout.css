@@ -11,7 +11,7 @@
 .page {
 	width: min(1100px, calc(100% - 2.2rem));
 	margin: 0 auto;
-	padding: 2rem 0 2.8rem;
+	padding: 5.1rem 0 2.8rem;
 }
 
 .hero {
@@ -40,6 +40,11 @@
 }
 
 @media (max-width: 850px) {
+	.page {
+		width: min(1100px, calc(100% - 1.6rem));
+		padding-top: 4.6rem;
+	}
+
 	.cards {
 		grid-template-columns: repeat(2, minmax(140px, 1fr));
 	}
@@ -50,11 +55,18 @@
 }
 
 @media (max-width: 620px) {
+	.page {
+		width: min(1100px, calc(100% - 1.1rem));
+		padding-top: 4.1rem;
+	}
+
 	.cards {
 		grid-template-columns: 1fr;
+		gap: 0.75rem;
 	}
 
 	.hero {
 		grid-template-columns: 1fr;
+		gap: 0.95rem;
 	}
 }

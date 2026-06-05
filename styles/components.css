@@ -151,13 +151,35 @@
 		width: 100px;
 		height: 100px;
 		border-radius: 24px;
+		justify-self: start;
 	}
 
 	.logo-text {
 		font-size: 1.65rem;
 	}
 
+	.hero h1 {
+		font-size: clamp(1.6rem, 8.8vw, 2.2rem);
+	}
+
+	.hero p {
+		font-size: 0.98rem;
+	}
+
+	.profile-link {
+		width: 100%;
+		justify-content: center;
+	}
+
 	.app-logo-link {
 		padding: 0.85rem;
+	}
+}
+
+@media (hover: none) {
+	.app-card-overlay {
+		transform: translateY(0);
+		background: color-mix(in srgb, var(--card) 82%, transparent);
+		backdrop-filter: blur(1.5px);
 	}
 }

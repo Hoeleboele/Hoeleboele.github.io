@@ -14,6 +14,12 @@ export class AppRepository {
 				url: "https://hoeleboele.github.io/GOAInitTracker/",
 				logoPath: "logos/GuardsInitiativeTrackerLogo.png",
 				description: "Manage initiative order for Guards of Atlantis 2 the boardgame."
+			}),
+			new AppEntry({
+				name: "Iron Quest",
+				url: "https://hoeleboele.github.io/FitnessTracker/",
+				logoPath: "logos/IronQuestLogo.png",
+				description: "Track your fitness activities, progress, and goals like a true hero."
 			})
 		];
 	}

@@ -28,6 +28,12 @@ export class AppRepository {
 				description: "A timer for the boardgame 6 Siege, to manage the game flow and keep track of the time left for each player."
 			}),
 			new AppEntry({
+				name: "Wargame HQ",
+				url: "https://hoeleboele.github.io/ShipFighters/",
+				logoPath: "logos/WargameHQLogo.png",
+				description: "Play a game of wargame HQ."
+			}),
+			new AppEntry({
 				name: "Iron Quest",
 				url: "https://hoeleboele.github.io/FitnessTracker/",
 				logoPath: "logos/IronQuestLogo.png",

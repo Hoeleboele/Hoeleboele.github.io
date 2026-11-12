@@ -34,6 +34,12 @@ export class AppRepository {
 				description: "Play a game of wargame HQ."
 			}),
 			new AppEntry({
+				name: "Card forger",
+				url: "https://hoeleboele.github.io/CardForger/",
+				logoPath: "logos/CardForgerLogo.png",
+				description: "Create and edit custom cards for your games."
+			}),
+			new AppEntry({
 				name: "Voxel studio",
 				url: "https://hoeleboele.github.io/Voxel-Studio/",
 				logoPath: "logos/VoxelStudioLogo.png",

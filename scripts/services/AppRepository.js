@@ -41,7 +41,7 @@ export class AppRepository {
 			}),
 			new AppEntry({
 				name: "Voxel studio",
-				url: "https://hoeleboele.github.io/Voxel-Studio/",
+				url: "https://hoeleboele.github.io/Voxel-studio/",
 				logoPath: "logos/VoxelStudioLogo.png",
 				description: "Create and edit voxel-based 3D models."
 			}),

@@ -34,6 +34,12 @@ export class AppRepository {
 				description: "Play a game of wargame HQ."
 			}),
 			new AppEntry({
+				name: "Voxel studio",
+				url: "https://hoeleboele.github.io/VoxelStudio/",
+				logoPath: "logos/VoxelStudioLogo.png",
+				description: "Create and edit voxel-based 3D models."
+			}),
+			new AppEntry({
 				name: "Iron Quest",
 				url: "https://hoeleboele.github.io/FitnessTracker/",
 				logoPath: "logos/IronQuestLogo.png",
